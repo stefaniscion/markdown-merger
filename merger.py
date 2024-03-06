@@ -21,6 +21,7 @@ if args.path.is_dir():
     for file_path in args.path.iterdir():
         if file_path.suffix == '.md':
             file_content = get_file_content(file_path)
+            file_content += "\n\n"
         if file_content:
             output_handler.write(file_content)
 else:
