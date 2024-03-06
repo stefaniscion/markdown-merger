@@ -18,11 +18,11 @@ output_path = Path("output.md")
 
 if args.path.is_dir():
     output_handler = open(output_path, "w")
-    for file_path in args.path.iterdir():
+    for file_path in sorted(args.path.iterdir()):
         if file_path.suffix == '.md':
             file_content = get_file_content(file_path)
             file_content += "\n\n"
-        if file_content:
-            output_handler.write(file_content)
+            if file_content:
+                output_handler.write(file_content)
 else:
     print("The path is not a directory")
